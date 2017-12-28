@@ -1,16 +1,16 @@
 pipeline {
     agent any
 
-    stages {
-        node {
-            checkout scm
+    node {
+      checkout scm
 
-            stage('Build') {
+    stages {
+        stage('Build') {
             steps {
                 echo 'Building..'
                 python hello.py
+                  }
               }
             }
         }
-    }
-}
+      }
