@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Test') {
+        stage ('Pre-Test') {
             steps {
                 echo 'Pre-test..'
                 sh 'go run hello.go'
