@@ -2,11 +2,28 @@ pipeline {
     agent any
 
     stages {
+        stage ('Test') {
+            steps {
+                echo 'Pre-test..'
+                sh 'go run hello.go'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'python hello.py'
-      }
+                sh 'go build hello.go'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh './hello'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-  }
 }
